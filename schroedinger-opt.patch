@@ -1,0 +1,11 @@
+--- schroedinger-1.0.0/configure.ac.orig	2008-02-22 22:19:25.000000000 +0100
++++ schroedinger-1.0.0/configure.ac	2008-08-23 19:30:05.118120063 +0200
+@@ -68,8 +68,6 @@
+   AS_COMPILER_FLAG(-Werror, SCHRO_CFLAGS="$SCHRO_CFLAGS -Werror")
+ fi
+ 
+-AS_COMPILER_FLAG(-O3, CFLAGS=`echo $CFLAGS | sed s/O2/O3/`)
+-
+ # Enable severe pain
+ #COMPANY_CFLAGS="-Wextra -Wno-missing-field-initializers -Wno-unused-parameter -Wold-style-definition -Wdeclaration-after-statement -Wmissing-declarations -Wmissing-prototypes -Wredundant-decls -Wmissing-noreturn -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Winline -Wformat-nonliteral -Wformat-security -Wswitch-enum -Wswitch-default"
+ #SCHRO_CFLAGS="$SCHRO_CFLAGS $COMPANY_CFLAGS"
