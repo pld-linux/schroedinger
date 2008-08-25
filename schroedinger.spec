@@ -11,10 +11,11 @@ Patch0:		%{name}-opt.patch
 URL:		http://schrodinger.sourceforge.net/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
-BuildRequires:	gstreamer-devel >= 0.10.12
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.12
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	liboil-devel >= 0.3.13
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 Requires:	liboil >= 0.3.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
