@@ -16,6 +16,7 @@ BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	liboil-devel >= 0.3.13
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.98
 Requires:	liboil >= 0.3.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
