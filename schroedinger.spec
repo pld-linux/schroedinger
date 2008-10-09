@@ -2,7 +2,7 @@ Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/schrodinger/%{name}-%{version}.tar.gz
@@ -13,7 +13,7 @@ BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.12
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	liboil-devel >= 0.3.13
+BuildRequires:	liboil-devel >= 1:0.3.13
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
@@ -37,7 +37,7 @@ Summary:	Header files for Schroedinger library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Schroedinger
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	liboil-devel >= 0.3.13
+Requires:	liboil-devel >= 1:0.3.13
 
 %description devel
 Header files for Schroedinger library.
