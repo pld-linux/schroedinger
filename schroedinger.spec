@@ -7,7 +7,7 @@ Release:	1
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
-# Source0-md5:	dfe538484b476085904a36c3140e1265
+# Source0-md5:	9a1132c54a58a6a040514f754b53ee44
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-gst.patch
 Patch2:		%{name}-install.patch
