@@ -1,19 +1,23 @@
+%define		gst_req_ver	0.10.24
 Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
-Version:	1.0.0
-Release:	2
+Version:	1.0.7
+Release:	1
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/schrodinger/%{name}-%{version}.tar.gz
+Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
 # Source0-md5:	dfe538484b476085904a36c3140e1265
 Patch0:		%{name}-opt.patch
-URL:		http://schrodinger.sourceforge.net/
+Patch1:		%{name}-gst.patch
+Patch2:		%{name}-install.patch
+URL:		http://www.diracvideo.org/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.12
+BuildRequires:	gstreamer-plugins-base-devel >= %{gst_req_ver}
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	liboil-devel >= 1:0.3.13
+BuildRequires:	liboil-devel >= 1:0.3.16
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
@@ -37,7 +41,7 @@ Summary:	Header files for Schroedinger library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Schroedinger
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	liboil-devel >= 1:0.3.13
+Requires:	liboil-devel >= 1:0.3.16
 
 %description devel
 Header files for Schroedinger library.
@@ -62,7 +66,7 @@ Summary:	Schroedinger plugin for GStreamer
 Summary(pl.UTF-8):	Wtyczka Schroedinger do GStreamera
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gstreamer >= 0.10.12
+Requires:	gstreamer >= %{gst_req_ver}
 
 %description -n gstreamer-schroedinger
 Schroedinger plugin for GStreamer.
@@ -73,6 +77,8 @@ Wtyczka Schroedinger do GStreamera.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -110,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libschroedinger-1.0.la
 %{_includedir}/schroedinger-1.0
 %{_pkgconfigdir}/schroedinger-1.0.pc
-%{_gtkdocdir}/schroedinger-1.0
+%{_gtkdocdir}/schroedinger
 
 %files static
 %defattr(644,root,root,755)
