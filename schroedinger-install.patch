@@ -1,0 +1,13 @@
+--- schroedinger-1.0.7/schroedinger/Makefile.am.orig	2009-04-22 04:00:23.000000000 +0200
++++ schroedinger-1.0.7/schroedinger/Makefile.am	2009-09-13 21:15:30.000000000 +0200
+@@ -57,9 +57,7 @@
+ 	schroutils.h \
+ 	schrovideoformat.h \
+ 	schrovirtframe.h \
+-	schrowavelet.h \
+-	schrobitstream.h \
+-	schromotion.h
++	schrowavelet.h
+ 
+ nodist_pkginclude_HEADERS = \
+ 	schroversion.h
