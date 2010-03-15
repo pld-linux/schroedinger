@@ -2,23 +2,21 @@
 Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
-Version:	1.0.7
+Version:	1.0.9
 Release:	1
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
-# Source0-md5:	9a1132c54a58a6a040514f754b53ee44
+# Source0-md5:	d67ec48b7c506db8c8b49156bf409e60
 Patch0:		%{name}-opt.patch
-Patch1:		%{name}-gst.patch
-Patch2:		%{name}-install.patch
 URL:		http://www.diracvideo.org/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
-BuildRequires:	gstreamer-plugins-base-devel >= %{gst_req_ver}
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	liboil-devel >= 1:0.3.16
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	orc-devel >= 0.4.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
 Requires:	liboil >= 0.3.13
@@ -61,24 +59,9 @@ Static Schroedinger library.
 %description static -l pl.UTF-8
 Statyczna biblioteka Schroedinger.
 
-%package -n gstreamer-schroedinger
-Summary:	Schroedinger plugin for GStreamer
-Summary(pl.UTF-8):	Wtyczka Schroedinger do GStreamera
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	gstreamer >= %{gst_req_ver}
-
-%description -n gstreamer-schroedinger
-Schroedinger plugin for GStreamer.
-
-%description -n gstreamer-schroedinger -l pl.UTF-8
-Wtyczka Schroedinger do GStreamera.
-
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -95,8 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/gstreamer-0.10/*.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -121,7 +102,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libschroedinger-1.0.a
-
-%files -n gstreamer-schroedinger
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/gstreamer-0.10/libgstschro.so
