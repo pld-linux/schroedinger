@@ -1,25 +1,23 @@
-%define		gst_req_ver	0.10.24
 Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
-Version:	1.0.9
+Version:	1.0.10
 Release:	1
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
-# Source0-md5:	d67ec48b7c506db8c8b49156bf409e60
+# Source0-md5:	9de088ccc314bb9e766cb3aa6510a0ef
 Patch0:		%{name}-opt.patch
 URL:		http://www.diracvideo.org/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	liboil-devel >= 1:0.3.16
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
-BuildRequires:	orc-devel >= 0.4.0
+BuildRequires:	libtool >= 2:1.5
+BuildRequires:	orc-devel >= 0.4.10
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
-Requires:	liboil >= 0.3.13
+Requires:	orc >= 0.4.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,7 +37,8 @@ Summary:	Header files for Schroedinger library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Schroedinger
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	liboil-devel >= 1:0.3.16
+Requires:	libstdc++-devel
+Requires:	orc-devel >= 0.4.10
 
 %description devel
 Header files for Schroedinger library.
