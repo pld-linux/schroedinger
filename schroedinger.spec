@@ -1,12 +1,12 @@
 Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
-Version:	1.0.10
+Version:	1.0.11
 Release:	1
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
-# Source0-md5:	9de088ccc314bb9e766cb3aa6510a0ef
+# Source0-md5:	da6af08e564ca1157348fb8d92efc891
 Patch0:		%{name}-opt.patch
 URL:		http://www.diracvideo.org/
 BuildRequires:	autoconf >= 2.58
@@ -14,7 +14,7 @@ BuildRequires:	automake >= 1.6
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
-BuildRequires:	orc-devel >= 0.4.10
+BuildRequires:	orc-devel >= 0.4.16
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
 Requires:	orc >= 0.4.10
