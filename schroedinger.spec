@@ -1,3 +1,8 @@
+# TODO: CUDA (as bcond)
+#
+# Conditional build:
+%bcond_with	opengl	# OpenGL rendering backend (disabled by default) [missing files as of 1.0.11]
+#
 Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
@@ -9,15 +14,18 @@ Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
 # Source0-md5:	da6af08e564ca1157348fb8d92efc891
 Patch0:		%{name}-opt.patch
 URL:		http://www.diracvideo.org/
+%{?with_opengl:BuildRequires:	OpenGL-devel}
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
+%{?with_opengl:BuildRequires:	glew-devel >= 1.5}
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	orc-devel >= 0.4.16
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
-Requires:	orc >= 0.4.10
+%{?with_opengl:Requires:	glew >= 1.5}
+Requires:	orc >= 0.4.16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,8 +45,9 @@ Summary:	Header files for Schroedinger library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Schroedinger
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+%{?with_opengl:Requires:	glew-devel >= 1.5}
 Requires:	libstdc++-devel
-Requires:	orc-devel >= 0.4.10
+Requires:	orc-devel >= 0.4.16
 
 %description devel
 Header files for Schroedinger library.
@@ -71,7 +80,8 @@ rm -f m4/libtool.m4 m4/lt*.m4
 %{__autoheader}
 %{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	%{?with_opengl:--with-opengl}
 %{__make}
 
 %install
