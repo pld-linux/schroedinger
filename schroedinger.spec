@@ -7,7 +7,7 @@ Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
 Version:	1.0.11
-Release:	1
+Release:	2
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
