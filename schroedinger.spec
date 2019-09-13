@@ -7,7 +7,7 @@ Summary:	Library for decoding and encoding video in the Dirac format
 Summary(pl.UTF-8):	Biblioteka do dekodowania i kodowania obrazu w formacie Dirac
 Name:		schroedinger
 Version:	1.0.11
-Release:	2
+Release:	3
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
 Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
@@ -67,11 +67,22 @@ Static Schroedinger library.
 %description static -l pl.UTF-8
 Statyczna biblioteka Schroedinger.
 
+%package apidocs
+Summary:	API documentation for Schroedinger library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki Schroedinger
+Group:		Documentation
+
+%description apidocs
+API documentation for Schroedinger library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki Schroedinger.
+
 %prep
 %setup -q
 %patch0 -p1
 
-rm -f m4/libtool.m4 m4/lt*.m4
+%{__rm} m4/libtool.m4 m4/lt*.m4
 
 %build
 %{__libtoolize}
@@ -90,6 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libschroedinger-1.0.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -105,11 +119,13 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libschroedinger-1.0.so
-%{_libdir}/libschroedinger-1.0.la
 %{_includedir}/schroedinger-1.0
 %{_pkgconfigdir}/schroedinger-1.0.pc
-%{_gtkdocdir}/schroedinger
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libschroedinger-1.0.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/schroedinger
