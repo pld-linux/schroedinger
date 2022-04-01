@@ -10,10 +10,11 @@ Version:	1.0.11
 Release:	3
 License:	MPL 1.1 or LGPL v2 or GPL v2 or MIT
 Group:		Libraries
-Source0:	http://diracvideo.org/download/schroedinger/%{name}-%{version}.tar.gz
+# formerly http://diracvideo.org/download/schroedinger/
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	da6af08e564ca1157348fb8d92efc891
 Patch0:		%{name}-opt.patch
-URL:		http://www.diracvideo.org/
+URL:		https://github.com/dschleef/schroedinger
 %{?with_opengl:BuildRequires:	OpenGL-devel}
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1.6
